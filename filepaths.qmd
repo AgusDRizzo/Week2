@@ -99,3 +99,38 @@ file.copy(from=Infants, to="data/02_FilePaths/data/FolderTarget3")
 ```{r}
 basename(Infants)
 ```
+
+```{r}
+FilePathUsb <- "D:/Target_folder/"
+```
+
+
+```{r}
+file.copy(from=Infants, to=FilePathUsb)
+```
+
+
+```{r}
+list.dirs(path , full.names = TRUE, recursive = FALSE)
+```
+
+
+```{r}
+system.file("extdata", package = "FlowSOM")
+```
+
+```{r}
+FlowSOMpath <- "C:/Users/agus_/AppData/Local/R/win-library/4.5/FlowSOM"
+list.files(FlowSOMpath, pattern = ".fcs", full.names = TRUE, recursive = TRUE)
+
+```
+
+```{r}
+system.file("extdata", package = "flowWorkspace")
+```
+
+```{r}
+FlowWorkpath <- "C:/Users/agus_/AppData/Local/R/win-library/4.5/flowWorkspace"
+list.files(FlowWorkpath, pattern = ".fcs", full.names = TRUE, recursive = TRUE )
+```
+
