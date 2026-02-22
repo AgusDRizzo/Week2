@@ -1,1 +1,101 @@
-    
+```{r}
+list.dirs(path=".", full.names=FALSE, recursive=FALSE)
+```
+
+
+```{r}
+list.files()
+```
+
+
+```{r}
+list.files(path="data/02_FilePaths/data", full.names=FALSE, recursive=FALSE)
+
+```
+
+
+```{r}
+NewFolderLocation <- file.path("data/02_FilePaths/data", "target2")
+
+dir.create(path=NewFolderLocation)
+```
+
+
+```{r}
+list.files(path="data/02_FilePaths/data/target", full.names=FALSE, recursive=FALSE)
+```
+
+
+```{r}
+FolderLocation <- file.path("data", "02_FilePaths", "data", "target")
+FolderLocation
+list.files(path=FolderLocation, full.names=FALSE, recursive=FALSE)
+```
+
+
+```{r}
+FolderLocation <- "data/02_FilePaths/data"
+ScreenshotFolder <- file.path(FolderLocation, "target")
+ScreenshotFolder
+list.files(path=ScreenshotFolder, full.names=FALSE, recursive=FALSE)
+
+```
+
+
+```{r}
+list.files(path=ScreenshotFolder, pattern="ND050", full.names=FALSE, recursive=FALSE)
+```
+
+
+```{r}
+files <- list.files(path = "data/02_FilePaths/data", pattern=".fcs", full.names=FALSE, recursive=FALSE)
+files
+```
+
+
+```{r}
+library(stringr)
+```
+
+```{r}
+str_detect(files, "INF")
+```
+
+
+```{r}
+files[str_detect(files, "INF")]
+```
+
+
+```{r}
+Infants <- files[str_detect(files, "INF")]
+```
+
+
+```{r}
+if (!dir.exists(path="data/02_FilePaths/data/FolderTarget3")){
+    dir.create(path="data/02_FilePaths/data/FolderTarget3")
+}
+```
+
+
+```{r}
+files_present <- list.files("data/02_FilePaths/data", full.names=TRUE, recursive=FALSE)
+files_present
+
+```
+
+
+```{r}
+Infants <- files_present[str_detect(files_present, "INF")]
+```
+
+```{r}
+file.copy(from=Infants, to="data/02_FilePaths/data/FolderTarget3")
+```
+
+
+
+```{r}
+basename(Infants)
+```
